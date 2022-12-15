@@ -1,14 +1,15 @@
 ﻿Add-Type -AssemblyName System.Windows.FOrms;
 
 ## Table Size
-$colCt = 5;
-$rowCt = 5;
+$colCt = 10;
+
+$rowCt = 10;
 
 ## Cell Size
-$cellWidth = 100;
-$cellHeight = 100;
+$cellWidth = 50;
+$cellHeight = 50;
 
-## Table Margin
+## C
 $marX = 10;
 $marY = 10;
 
@@ -23,8 +24,8 @@ function addCell () {
 
 $main = New-Object System.Windows.Forms.Form;
 $main.FormBorderStyle = [System.Windows.Forms.FormBorderStyle]::FixedDialog;
-$main.Width = $cellWidth * $colCt + 50;;
-$main.Height = $cellHeight * $rowCt + 50;
+$main.Width = ($cellWidth * $colCt) + $marX * 2 + $marX;
+$main.Height = ($cellHeight * $rowCt) + $marY * 4 + $marY;
 
 $cellCt = $rowCt * $colCt;
 for ($i = 0; $i -lt $cellCt; $i++) {
