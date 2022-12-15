@@ -33,15 +33,19 @@ for ($i = 0; $i -lt $cellCt; $i++) {
     $cols = $colCt;
 
     [double]$row = [System.Math]::Truncate(([decimal]$i / $cols));
-    [double]$col =  $i % $cols
+    [double]$col =  $i % $cols;
 
+    ## Cell X Position
     if ($col -gt 0) { $x = $col * $cellWidth + $marX; }
     else { $x = $marX; }
 
+    ## Cell Y Position
     if ($row -gt 0) { $y = ($row * $cellHeight + $mary); }
     else { $y = $marY; }
     
+    ## Use $cell to store Object varible name to build dynamic expression 
     $cell = "`$cell$i";
+
     Invoke-Expression -Command "$cell = addCell;";
     Invoke-Expression -Command "$cell.Location = `"$x, $y`";"
     Invoke-Expression -Command "$cell.Add_MouseLeave({
