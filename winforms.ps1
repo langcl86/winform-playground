@@ -58,7 +58,14 @@ function main {
         ## Get variable for current object- script creates objects
         $cell = "`$cell$i";
 
-        ## Invoke command using $cell string for the current object
+<#
+    .SYNOPSIS
+         Invoke command using $cell string for the current object
+
+    .DESCRIPTION
+        Invoke commands as String to create Control objects. 
+        A new object will be created for each cell in the table. 
+#>
         Invoke-Expression -Command "$cell = addCell;";
         Invoke-Expression -Command "$cell.Location = `"$x, $y`";"
         Invoke-Expression -Command "$cell.Add_MouseLeave({
