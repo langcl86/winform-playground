@@ -1,19 +1,17 @@
-﻿#
+﻿## Table Settings 
 ##
-### Table Settings 
-#
 ## Table Size
 $colCt = 7;
 $rowCt = 5;
-
+#
 ## Cell Size
 $cellWidth = 50;
 $cellHeight = 50;
-
+#
 ## Table Margin
 $marX = 10;
 $marY = 10;
-#
+##
 
 function addCell () {
 <#
@@ -21,8 +19,7 @@ function addCell () {
         Create a new Form Panel and return Control object
 #>
     $panel = New-Object System.Windows.Forms.Panel;
-    $panel.BorderStyle = [
-    System.Windows.Forms.BorderStyle]::FixedSingle;
+    $panel.BorderStyle = [System.Windows.Forms.BorderStyle]::FixedSingle;
     $panel.Width = $cellWidth;
     $panel.Height = $cellHeight;
     return $panel;
@@ -41,7 +38,7 @@ function main {
     $main.Width = ($cellWidth * $colCt) + $marX * 2 + $marX;
     $main.Height = ($cellHeight * $rowCt) + $marY * 4 + $marY;
 
-    ## Create Cells
+    ## Loop total cells
     $cellCt = $rowCt * $colCt;
     for ($i = 0; $i -lt $cellCt; $i++) {
         $cols = $colCt;
@@ -56,7 +53,7 @@ function main {
 
         ## Cell Y Position
         if ($row -gt 0) { $y = ($row * $cellHeight + $mary); }
-        else { $y = $marY; } # Firest Row
+        else { $y = $marY; } # First Row
     
         ## Get variable for current object- script creates objects
         $cell = "`$cell$i";
