@@ -10,7 +10,7 @@ $rowCt = 5;
 $cellWidth = 50;
 $cellHeight = 50;
 
-## Cell Margin
+## Table Margin
 $marX = 10;
 $marY = 10;
 #
